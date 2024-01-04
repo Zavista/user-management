@@ -150,3 +150,25 @@ exports.deleteEmployee = async (req, res) => {
         console.log(err);
     }
 }
+
+//GET: Search Employee
+exports.search = async (req, res) => {
+    const locals = {
+        title: 'Search',
+        description: 'CRUD User Management System'
+    };
+
+    try {
+        const searchTerm = req.body.searchTerm || " ";
+        const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9]/g, "");
+        const searchResults = await Employee.find({
+            $or: [
+                { firstName: {$regex: new RegExp(searchNoSpecialChar, "i")}},
+                { lastName: {$regex: new RegExp(searchNoSpecialChar, "i")}},
+                { job: {$regex: new RegExp(searchNoSpecialChar, "i")}}]}).limit(10);
+        res.render("search", { searchTerm, searchResults, locals }); // Pass searchResults to the view
+        
+    } catch (err) {
+        console.error(err);
+    }
+};
