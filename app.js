@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayout = require('express-ejs-layouts')
-const customerRouter = require('./server/routes/customer')
+const customerRouter = require('./server/routes/employee')
 const connectDB = require('./server/config/db')
 
 connectDB()

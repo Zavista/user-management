@@ -14,9 +14,9 @@ exports.homepage = async (req, res) =>{
 
 exports.addCustomer = async (req, res) => {
     const locals = {
-        title: 'Add New Customer',
+        title: 'Add New Employee',
         description: `CRUD User Management System`
     }
 
-    res.render('customer/add', locals);
+    res.render('employee/add', locals);
 }
