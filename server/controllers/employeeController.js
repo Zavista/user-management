@@ -1,5 +1,7 @@
 const Employee = require('../models/Employee')
 const mongoose = require('mongoose')
+
+
 //GET: Homepage
 
 exports.homepage = async (req, res) =>{
@@ -76,5 +78,21 @@ exports.createEmployee = async (req, res) => {
         res.redirect('/')
     } catch(err){
         console.log(err)
+    }
+}
+
+// GET: Get Employee Data
+exports.getEmployee = async (req, res) => {
+    const locals = {
+        title: 'View',
+        description: `CRUD User Management System`
+    }
+
+    try {
+        const employee = await Employee.findOne({_id: req.params.id})
+
+        res.render('employee/view', {locals, employee})
+    } catch (err) {
+        console.log(err);
     }
 }
