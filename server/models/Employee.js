@@ -27,6 +27,9 @@ const EmployeeSchema = new Schema({
         type: Number,
         required: true
     },
+    aif:{
+        type: String,
+    },
     createdAt:{
         type: Date,
     },
