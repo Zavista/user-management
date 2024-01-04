@@ -13,3 +13,46 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
     </div>
 <% }) %>
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Employee ID</th>
+                <th scope="col" class="text-end">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% employees.forEach(element => { %>
+                <tr class="align-middle">
+                    <td><%= element.fullName %></td>
+                    <td><%= element.email %></td>
+                    <td><%= element.job %></td>
+                    <td><%= element.eid %></td>
+                    <td>
+                        <div class="d-flex flex-row justify-content-end gap-2">
+                            <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">
+                                <i class="bi bi-eye"></i>
+                            </a>
+
+                            <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
+                                <button type="submit" class="btn btn-danger btn btn-small">
+                                    <i class="bi bi-person-x"></i>
+                                </button>
+
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
