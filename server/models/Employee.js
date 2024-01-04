@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
+const { DateTime } = require("luxon");
 
 
 const EmployeeSchema = new Schema({
@@ -43,6 +44,15 @@ const EmployeeSchema = new Schema({
 EmployeeSchema.virtual('fullName').get(function () {
     return this.firstName + ' ' + this.lastName;
 });
+
+EmployeeSchema.virtual('createdFormatted').get(function () {
+    return DateTime.fromJSDate(this.createdAt).toLocaleString(DateTime.DATE_MED);
+});
+
+EmployeeSchema.virtual('updatedFormatted').get(function () {
+    return DateTime.fromJSDate(this.updatedAt).toLocaleString(DateTime.DATE_MED);
+});
+
 
 EmployeeSchema.set('toJSON', { virtuals: true });
 
