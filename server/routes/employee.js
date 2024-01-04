@@ -12,4 +12,6 @@ router.post('/add', employeeController.createEmployee)
 
 router.get('/view/:id', employeeController.getEmployee)
 
+router.edit('/edit/:id', employeeController.editEmployee)
+
 module.exports = router;
