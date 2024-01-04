@@ -10,7 +10,16 @@ exports.homepage = async (req, res) =>{
         title: 'Home',
         description: `CRUD User Management System`
     }
-    res.render('index', { locals, messages } );
+
+    try {
+        const employees = await Employee.find({}).limit(22)
+        res.render('index', { locals, messages, employees } );
+    } catch (err) {
+        console.log(err);
+    }
+
+
+    
 }
 
 
