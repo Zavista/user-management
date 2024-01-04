@@ -1,4 +1,5 @@
-
+const Employee = require('../models/Employee')
+const mongoose = require('mongoose')
 //GET: Homepage
 
 exports.homepage = async (req, res) =>{
