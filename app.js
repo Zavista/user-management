@@ -15,13 +15,18 @@ app.use(express.static('public'));
 
 // Templating Engine
 app.use(expressLayout);
-app.set('layout', './layout/main');
+app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('Hello World')
+
+    const locals = {
+        title: "NodeJS",
+        description: "Free NodeJS User Management System"
+    }
+    res.render('index', locals);
 })
 
 
