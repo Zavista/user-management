@@ -30,6 +30,7 @@ const EmployeeSchema = new Schema({
     },
     aif:{
         type: String,
+        default: "N/A"
     },
     createdAt:{
         type: Date,
