@@ -10,9 +10,21 @@ exports.homepage = async (req, res) =>{
 }
 
 
-//GET: New Customer Form
+//GET: New Employee Form
 
-exports.addCustomer = async (req, res) => {
+exports.addEmployee = async (req, res) => {
+    const locals = {
+        title: 'Add New Employee',
+        description: `CRUD User Management System`
+    }
+
+    res.render('employee/add', locals);
+}
+
+//POST: Create New Employee
+
+exports.createEmployee = async (req, res) => {
+    console.log(req);
     const locals = {
         title: 'Add New Employee',
         description: `CRUD User Management System`
