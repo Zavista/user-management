@@ -96,3 +96,19 @@ exports.getEmployee = async (req, res) => {
         console.log(err);
     }
 }
+
+// GET: Get Edit Employee Form
+exports.editEmployee = async (req, res) => {
+    const locals = {
+        title: 'Edit',
+        description: `CRUD User Management System`
+    }
+
+    try {
+        const employee = await Employee.findOne({_id: req.params.id})
+
+        res.render('employee/edit', {locals, employee})
+    } catch (err) {
+        console.log(err);
+    }
+}
