@@ -4,6 +4,7 @@ const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const session = require('express-session');
+const methodOveride = require('method-override');
 
 const connectDB = require('./server/config/db')
 connectDB()
@@ -13,6 +14,7 @@ const port = 5000 || process.env.PORT;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(methodOveride("_method"));
 
 
 // Static Files
