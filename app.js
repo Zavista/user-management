@@ -3,6 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const expressLayout = require('express-ejs-layouts')
 const customerRouter = require('./server/routes/customer')
+const connectDB = require('./server/config/db')
+
+connectDB()
 
 const app = express()
 const port = 5000 || process.env.PORT;
