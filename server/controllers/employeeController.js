@@ -112,3 +112,30 @@ exports.editEmployee = async (req, res) => {
         console.log(err);
     }
 }
+
+
+// GET: Get Edit Employee Form
+exports.editSubmit = async (req, res) => {
+    const locals = {
+        title: 'Edit',
+        description: `CRUD User Management System`
+    }
+
+    try {
+        await Employee.findByIdAndUpdate(req.params.id, 
+        {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            tel: req.body.tel,
+            email: req.body.email,
+            job: req.body.job,
+            eid: req.body.eid,
+            aif: req.body.aif,
+            updatedAt: Date.now()
+        })
+
+        res.redirect(`/view/${req.params.id}`)
+    } catch (err) {
+        console.log(err);
+    }
+}
