@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Employee Details</h1>
+    <h1 class="h2"><%= employee.fullName %></h1>
 </div>
 
 <div class="col py-3">
@@ -11,7 +11,7 @@
                         <a href="/">Dashboard</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        <%= employee.fullName %>
+                        <%= employee.firstName %>
                     </li> 
                 </ol>
             </nav>
@@ -21,3 +21,60 @@
         </div>
     </div>
 </div>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"><b>First Name:</b></div>
+            <div class="col"><%= employee.firstName %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"><b>Last Name:</b></div>
+            <div class="col"><%= employee.lastName %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"><b>Employee ID:</b></div>
+            <div class="col"><%= employee.eid %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"><b>Job Title:</b></div>
+            <div class="col"><%= employee.job %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"><b>Telephone:</b></div>
+            <div class="col"><%= employee.tel %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"><b>Email:</b></div>
+            <div class="col"><%= employee.email %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"><b>Details</b></div>
+            <div class="col"><%= employee.aif %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"><b>Date Created:</b></div>
+            <div class="col"><%= employee.createdFormatted %></div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px;"><b>Date Modified:</b></div>
+            <div class="col"><%= employee.updatedFormatted %></div>
+        </div>
+    </li>
+</ul>
