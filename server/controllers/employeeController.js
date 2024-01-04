@@ -114,7 +114,7 @@ exports.editEmployee = async (req, res) => {
 }
 
 
-// GET: Get Edit Employee Form
+// PUT: Update Employee Data
 exports.editSubmit = async (req, res) => {
     const locals = {
         title: 'Edit',
@@ -135,6 +135,17 @@ exports.editSubmit = async (req, res) => {
         })
 
         res.redirect(`/view/${req.params.id}`)
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+//DELETE: Delete Employee
+exports.deleteEmployee = async (req, res) => {
+    try{
+        await Employee.deleteOne({_id: req.params.id});
+        res.redirect("/")
+        await req.flash('info', 'Employee has been deleted.')
     } catch (err) {
         console.log(err);
     }
