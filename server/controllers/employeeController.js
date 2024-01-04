@@ -11,7 +11,7 @@ exports.homepage = async (req, res) =>{
         description: `CRUD User Management System`
     }
 
-    let perPage = 12;
+    let perPage = 10;
     let page = req.query.page || 1;
 
     try {
@@ -23,13 +23,18 @@ exports.homepage = async (req, res) =>{
 
 
         const count = await Employee.countDocuments();
-
-        res.render('index', { locals, 
+        if (page > Math.ceil(count / perPage)) {
+            res.render('404');
+        }
+        else{
+          res.render('index', { locals, 
             messages, 
             employees, 
             current: page,
             pages: Math.ceil(count / perPage)
-        } );
+        } );  
+        }
+        
     } catch (err) {
         console.log(err);
     }
