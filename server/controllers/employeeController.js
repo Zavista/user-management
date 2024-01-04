@@ -3,11 +3,14 @@ const mongoose = require('mongoose')
 //GET: Homepage
 
 exports.homepage = async (req, res) =>{
+
+    const messages = await req.flash("info");
+
     const locals = {
         title: 'Home',
         description: `CRUD User Management System`
     }
-    res.render('index', locals);
+    res.render('index', { locals, messages } );
 }
 
 
@@ -42,6 +45,7 @@ exports.createEmployee = async (req, res) => {
 
     try {
         await newEmployee.save();
+        await req.flash('info', 'New employee has been added.')
         res.redirect('/')
     } catch(err){
         console.log(err)
