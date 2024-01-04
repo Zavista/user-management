@@ -16,4 +16,6 @@ router.get('/edit/:id', employeeController.editEmployee)
 
 router.put('/edit/:id', employeeController.editSubmit)
 
+router.delete('/edit/:id', employeeController.deleteEmployee)
+
 module.exports = router;
