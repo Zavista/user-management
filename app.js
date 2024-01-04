@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayout = require('express-ejs-layouts')
-const customerRouter = require('./server/routes/employee')
+const employeeRouter = require('./server/routes/employee')
 const connectDB = require('./server/config/db')
 
 connectDB()
@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 
 
 // Routes
-app.use('/', customerRouter)
+app.use('/', employeeRouter)
 
 // Handle 404
 app.get('*', (req, res) => {
