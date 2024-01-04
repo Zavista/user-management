@@ -14,4 +14,6 @@ router.get('/view/:id', employeeController.getEmployee)
 
 router.get('/edit/:id', employeeController.editEmployee)
 
+router.put('/edit/:id', employeeController.editSubmit)
+
 module.exports = router;
