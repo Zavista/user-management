@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayout = require('express-ejs-layouts')
+const customerRouter = require('./server/routes/customer')
 
 const app = express()
 const port = 5000 || process.env.PORT;
@@ -20,14 +21,7 @@ app.set('view engine', 'ejs');
 
 
 // Routes
-app.get('/', (req, res) => {
-
-    const locals = {
-        title: "NodeJS",
-        description: "Free NodeJS User Management System"
-    }
-    res.render('index', locals);
-})
+app.use('/', customerRouter)
 
 // Handle 404
 app.get('*', (req, res) => {
