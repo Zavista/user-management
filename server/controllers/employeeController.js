@@ -46,6 +46,4 @@ exports.createEmployee = async (req, res) => {
     } catch(err){
         console.log(err)
     }
-
-    res.render('employee/add', locals);
 }
