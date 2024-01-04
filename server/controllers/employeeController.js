@@ -144,8 +144,8 @@ exports.editSubmit = async (req, res) => {
 exports.deleteEmployee = async (req, res) => {
     try{
         await Employee.deleteOne({_id: req.params.id});
-        res.redirect("/")
         await req.flash('info', 'Employee has been deleted.')
+        res.redirect("/")
     } catch (err) {
         console.log(err);
     }
