@@ -25,10 +25,26 @@ exports.addEmployee = async (req, res) => {
 //POST: Create New Employee
 
 exports.createEmployee = async (req, res) => {
-    console.log(req);
     const locals = {
         title: 'Add New Employee',
         description: `CRUD User Management System`
+    }
+
+    const newEmployee = new Employee({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        tel: req.body.tel,
+        email: req.body.email,
+        job: req.body.job,
+        eid: req.body.eid,
+        aif: req.body.aif
+    });
+
+    try {
+        await newEmployee.save();
+        res.redirect('/')
+    } catch(err){
+        console.log(err)
     }
 
     res.render('employee/add', locals);
