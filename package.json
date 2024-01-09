@@ -6,7 +6,6 @@
   "scripts": {
     "devstart": "nodemon app.js",
     "build": "npm i"
-    
   },
   "keywords": [],
   "author": "",
@@ -20,6 +19,7 @@
     "express-session": "^1.17.3",
     "luxon": "^3.4.4",
     "method-override": "^3.0.0",
-    "mongoose": "^8.0.3"
+    "mongoose": "^8.0.3",
+    "nodemon": "^3.0.2"
   }
 }
